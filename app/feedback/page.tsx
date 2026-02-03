@@ -67,11 +67,11 @@ export default function FeedbackPage() {
 
     // Not all themes viewed
     if (!allViewed) {
-        const remaining = [
-            !viewedThemes.green && 'Green',
-            !viewedThemes.purple && 'Purple',
-            !viewedThemes.blue && 'Blue',
-        ].filter(Boolean)
+        const remaining: string[] = [
+            !viewedThemes.green ? 'Green' : null,
+            !viewedThemes.purple ? 'Purple' : null,
+            !viewedThemes.blue ? 'Blue' : null,
+        ].filter((theme): theme is string => theme !== null)
 
         return (
             <main className="min-h-screen flex items-center justify-center p-4">
