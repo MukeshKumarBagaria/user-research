@@ -33,23 +33,14 @@ export default function ReviewPage() {
             <div className="max-w-5xl mx-auto">
                 {/* Header */}
                 <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                        <div>
-                            <Link href="/" className="text-slate-500 hover:text-slate-700 transition-colors flex items-center gap-2 mb-1 text-sm">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
-                                {t('review.backHome')}
-                            </Link>
-                            <h1 className="text-xl sm:text-3xl lg:text-4xl font-bold text-slate-800">{t('review.title')}</h1>
-                        </div>
-
-                        <Link href="/feedback" className="btn-success inline-flex items-center justify-center gap-2 text-sm px-4 py-2.5">
-                            {t('review.proceedFeedback')}
+                    <div>
+                        <Link href="/" className="text-slate-500 hover:text-slate-700 transition-colors flex items-center gap-2 mb-1 text-sm">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
+                            {t('review.backHome')}
                         </Link>
+                        <h1 className="text-xl sm:text-3xl lg:text-4xl font-bold text-slate-800">{t('review.title')}</h1>
                     </div>
                 </div>
 
