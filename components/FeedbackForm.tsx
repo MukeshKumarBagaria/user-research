@@ -5,15 +5,7 @@ import { supabase, FeedbackData } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/lib/LanguageContext'
 
-interface FeedbackFormProps {
-    viewedThemes: {
-        green: boolean
-        purple: boolean
-        blue: boolean
-    }
-}
-
-export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
+export default function FeedbackForm() {
     const router = useRouter()
     const { t, language } = useLanguage()
 
@@ -38,13 +30,6 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
         e.preventDefault()
         if (!isFormValid) return
 
-        // Check if already submitted in this session
-        const hasSubmitted = localStorage.getItem('feedback_submitted')
-        if (hasSubmitted) {
-            setError(t('form.errorSession'))
-            return
-        }
-
         setIsSubmitting(true)
         setError('')
 
@@ -54,9 +39,9 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
                 department: formData.department.trim(),
                 preferred_color: formData.preferred_color as 'green' | 'purple' | 'blue',
                 remark: formData.remark.trim() || undefined,
-                viewed_green: viewedThemes.green,
-                viewed_purple: viewedThemes.purple,
-                viewed_blue: viewedThemes.blue,
+                viewed_green: true,
+                viewed_purple: true,
+                viewed_blue: true,
             }
 
             const { error: supabaseError } = await supabase
@@ -64,12 +49,6 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
                 .insert([feedbackData])
 
             if (supabaseError) throw supabaseError
-
-            // Mark as submitted
-            localStorage.setItem('feedback_submitted', 'true')
-
-            // Clear progress
-            localStorage.removeItem('viewed_themes')
 
             router.push('/thank-you')
         } catch (err) {

@@ -28,7 +28,7 @@ const translations = {
         'home.purpleTheme': 'Purple Theme',
         'home.blueTheme': 'Blue Theme',
         'home.startReview': 'Start Review',
-        'home.duration': 'Takes approximately 5 minutes',
+        'home.duration': 'Takes approximately 2 minutes',
 
         // Review page
         'review.backHome': 'Back to Home',
@@ -110,7 +110,7 @@ const translations = {
         'home.purpleTheme': 'बैंगनी थीम',
         'home.blueTheme': 'नीली थीम',
         'home.startReview': 'समीक्षा शुरू करें',
-        'home.duration': 'लगभग 5 मिनट लगते हैं',
+        'home.duration': 'लगभग 2 मिनट लगते हैं',
 
         // Review page
         'review.backHome': 'होम पर वापस जाएं',
