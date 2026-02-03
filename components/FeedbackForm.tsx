@@ -81,8 +81,8 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
         <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
             <div>
-                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
-                    Full Name <span className="text-red-400">*</span>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-600 mb-2">
+                    Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                     type="text"
@@ -97,8 +97,8 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
 
             {/* Department Field */}
             <div>
-                <label htmlFor="department" className="block text-sm font-medium text-white/80 mb-2">
-                    Department <span className="text-red-400">*</span>
+                <label htmlFor="department" className="block text-sm font-medium text-slate-600 mb-2">
+                    Department <span className="text-red-500">*</span>
                 </label>
                 <input
                     type="text"
@@ -113,15 +113,15 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
 
             {/* Preferred Theme Selection */}
             <div>
-                <label className="block text-sm font-medium text-white/80 mb-3">
-                    Preferred Color Theme <span className="text-red-400">*</span>
+                <label className="block text-sm font-medium text-slate-600 mb-3">
+                    Preferred Color Theme <span className="text-red-500">*</span>
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {themeOptions.map((theme) => (
                         <label
                             key={theme.value}
                             className={`radio-card ${formData.preferred_color === theme.value ? 'selected' : ''}`}
-                            style={formData.preferred_color === theme.value ? { borderColor: theme.color, background: `${theme.color}20` } : {}}
+                            style={formData.preferred_color === theme.value ? { borderColor: theme.color, background: `${theme.color}15` } : {}}
                         >
                             <input
                                 type="radio"
@@ -132,10 +132,10 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
                             />
                             <div className="flex items-center gap-3">
                                 <div
-                                    className="w-6 h-6 rounded-full ring-2 ring-white/20"
+                                    className="w-6 h-6 rounded-full ring-2 ring-slate-200"
                                     style={{ backgroundColor: theme.color }}
                                 />
-                                <span className="font-medium text-white">{theme.label}</span>
+                                <span className="font-medium text-slate-700">{theme.label}</span>
                             </div>
                             {formData.preferred_color === theme.value && (
                                 <div className="absolute top-2 right-2">
@@ -151,8 +151,8 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
 
             {/* Remarks Field */}
             <div>
-                <label htmlFor="remark" className="block text-sm font-medium text-white/80 mb-2">
-                    Additional Remarks <span className="text-white/40">(optional)</span>
+                <label htmlFor="remark" className="block text-sm font-medium text-slate-600 mb-2">
+                    Additional Remarks <span className="text-slate-400">(optional)</span>
                 </label>
                 <textarea
                     id="remark"
@@ -166,7 +166,7 @@ export default function FeedbackForm({ viewedThemes }: FeedbackFormProps) {
 
             {/* Error Message */}
             {error && (
-                <div className="p-4 rounded-lg bg-red-500/20 border border-red-500/30 text-red-400">
+                <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-600">
                     {error}
                 </div>
             )}

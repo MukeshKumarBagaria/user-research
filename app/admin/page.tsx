@@ -69,7 +69,7 @@ export default function AdminPage() {
     if (loading) {
         return (
             <main className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-4 border-white/20 border-t-white"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-4 border-slate-200 border-t-indigo-600"></div>
             </main>
         )
     }
@@ -80,19 +80,19 @@ export default function AdminPage() {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
                     <div>
-                        <Link href="/" className="text-white/60 hover:text-white transition-colors flex items-center gap-2 mb-2">
+                        <Link href="/" className="text-slate-500 hover:text-slate-700 transition-colors flex items-center gap-2 mb-2">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
                             Back to Home
                         </Link>
-                        <h1 className="text-3xl sm:text-4xl font-bold text-white">Admin Dashboard</h1>
-                        <p className="text-white/60">View all submitted feedback and analytics</p>
+                        <h1 className="text-3xl sm:text-4xl font-bold text-slate-800">Admin Dashboard</h1>
+                        <p className="text-slate-500">View all submitted feedback and analytics</p>
                     </div>
 
                     <button
                         onClick={fetchFeedbacks}
-                        className="px-6 py-3 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
+                        className="px-6 py-3 rounded-xl bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 transition-all duration-300 flex items-center gap-2 shadow-sm"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -102,7 +102,7 @@ export default function AdminPage() {
                 </div>
 
                 {error && (
-                    <div className="p-4 rounded-lg bg-red-500/20 border border-red-500/30 text-red-400 mb-8">
+                    <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-600 mb-8">
                         {error}
                     </div>
                 )}
@@ -112,11 +112,11 @@ export default function AdminPage() {
                     <div className="glass-card rounded-xl p-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-white/60 text-sm">Total Submissions</p>
-                                <p className="text-3xl font-bold text-white">{totalSubmissions}</p>
+                                <p className="text-slate-500 text-sm">Total Submissions</p>
+                                <p className="text-3xl font-bold text-slate-800">{totalSubmissions}</p>
                             </div>
-                            <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                                <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                             </div>
@@ -126,11 +126,11 @@ export default function AdminPage() {
                     <div className="glass-card rounded-xl p-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-white/60 text-sm">Today</p>
-                                <p className="text-3xl font-bold text-white">{todaySubmissions}</p>
+                                <p className="text-slate-500 text-sm">Today</p>
+                                <p className="text-3xl font-bold text-slate-800">{todaySubmissions}</p>
                             </div>
-                            <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
-                                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
@@ -140,13 +140,13 @@ export default function AdminPage() {
                     <div className="glass-card rounded-xl p-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-white/60 text-sm">Most Popular</p>
-                                <p className="text-3xl font-bold text-white capitalize">
+                                <p className="text-slate-500 text-sm">Most Popular</p>
+                                <p className="text-3xl font-bold text-slate-800 capitalize">
                                     {pieData.length > 0 ? pieData.reduce((a, b) => a.value > b.value ? a : b).name : '-'}
                                 </p>
                             </div>
-                            <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                                <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                                 </svg>
                             </div>
@@ -156,11 +156,11 @@ export default function AdminPage() {
                     <div className="glass-card rounded-xl p-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-white/60 text-sm">Departments</p>
-                                <p className="text-3xl font-bold text-white">{Object.keys(departmentStats).length}</p>
+                                <p className="text-slate-500 text-sm">Departments</p>
+                                <p className="text-3xl font-bold text-slate-800">{Object.keys(departmentStats).length}</p>
                             </div>
-                            <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                 </svg>
                             </div>
@@ -172,7 +172,7 @@ export default function AdminPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                     {/* Pie Chart */}
                     <div className="glass-card rounded-2xl p-6">
-                        <h2 className="text-xl font-bold text-white mb-6">Theme Preference Distribution</h2>
+                        <h2 className="text-xl font-bold text-slate-800 mb-6">Theme Preference Distribution</h2>
                         {pieData.length > 0 ? (
                             <ResponsiveContainer width="100%" height={300}>
                                 <PieChart>
@@ -192,17 +192,17 @@ export default function AdminPage() {
                                     </Pie>
                                     <Tooltip
                                         contentStyle={{
-                                            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                                            border: '1px solid rgba(255,255,255,0.1)',
+                                            backgroundColor: 'white',
+                                            border: '1px solid #e2e8f0',
                                             borderRadius: '8px',
-                                            color: 'white'
+                                            color: '#1e293b'
                                         }}
                                     />
                                     <Legend />
                                 </PieChart>
                             </ResponsiveContainer>
                         ) : (
-                            <div className="h-[300px] flex items-center justify-center text-white/40">
+                            <div className="h-[300px] flex items-center justify-center text-slate-400">
                                 No data available
                             </div>
                         )}
@@ -210,26 +210,26 @@ export default function AdminPage() {
 
                     {/* Bar Chart */}
                     <div className="glass-card rounded-2xl p-6">
-                        <h2 className="text-xl font-bold text-white mb-6">Preferences by Department</h2>
+                        <h2 className="text-xl font-bold text-slate-800 mb-6">Preferences by Department</h2>
                         {barData.length > 0 ? (
                             <ResponsiveContainer width="100%" height={300}>
                                 <BarChart data={barData}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                                    <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                                     <XAxis
                                         dataKey="department"
-                                        stroke="rgba(255,255,255,0.5)"
-                                        tick={{ fill: 'rgba(255,255,255,0.7)', fontSize: 12 }}
+                                        stroke="#64748b"
+                                        tick={{ fill: '#64748b', fontSize: 12 }}
                                         angle={-45}
                                         textAnchor="end"
                                         height={80}
                                     />
-                                    <YAxis stroke="rgba(255,255,255,0.5)" tick={{ fill: 'rgba(255,255,255,0.7)' }} />
+                                    <YAxis stroke="#64748b" tick={{ fill: '#64748b' }} />
                                     <Tooltip
                                         contentStyle={{
-                                            backgroundColor: 'rgba(30, 41, 59, 0.95)',
-                                            border: '1px solid rgba(255,255,255,0.1)',
+                                            backgroundColor: 'white',
+                                            border: '1px solid #e2e8f0',
                                             borderRadius: '8px',
-                                            color: 'white'
+                                            color: '#1e293b'
                                         }}
                                     />
                                     <Legend />
@@ -239,7 +239,7 @@ export default function AdminPage() {
                                 </BarChart>
                             </ResponsiveContainer>
                         ) : (
-                            <div className="h-[300px] flex items-center justify-center text-white/40">
+                            <div className="h-[300px] flex items-center justify-center text-slate-400">
                                 No data available
                             </div>
                         )}
@@ -248,30 +248,30 @@ export default function AdminPage() {
 
                 {/* Recent Submissions Table */}
                 <div className="glass-card rounded-2xl p-6">
-                    <h2 className="text-xl font-bold text-white mb-6">All Submissions</h2>
+                    <h2 className="text-xl font-bold text-slate-800 mb-6">All Submissions</h2>
 
                     {feedbacks.length > 0 ? (
                         <div className="overflow-x-auto">
                             <table className="w-full">
                                 <thead>
-                                    <tr className="border-b border-white/10">
-                                        <th className="text-left py-3 px-4 text-white/60 font-medium">Name</th>
-                                        <th className="text-left py-3 px-4 text-white/60 font-medium">Department</th>
-                                        <th className="text-left py-3 px-4 text-white/60 font-medium">Preferred Theme</th>
-                                        <th className="text-left py-3 px-4 text-white/60 font-medium">Remarks</th>
-                                        <th className="text-left py-3 px-4 text-white/60 font-medium">Submitted</th>
+                                    <tr className="border-b border-slate-200">
+                                        <th className="text-left py-3 px-4 text-slate-500 font-medium">Name</th>
+                                        <th className="text-left py-3 px-4 text-slate-500 font-medium">Department</th>
+                                        <th className="text-left py-3 px-4 text-slate-500 font-medium">Preferred Theme</th>
+                                        <th className="text-left py-3 px-4 text-slate-500 font-medium">Remarks</th>
+                                        <th className="text-left py-3 px-4 text-slate-500 font-medium">Submitted</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {feedbacks.map((feedback) => (
-                                        <tr key={feedback.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td className="py-4 px-4 text-white">{feedback.name}</td>
-                                            <td className="py-4 px-4 text-white/80">{feedback.department}</td>
+                                        <tr key={feedback.id} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                                            <td className="py-4 px-4 text-slate-800">{feedback.name}</td>
+                                            <td className="py-4 px-4 text-slate-600">{feedback.department}</td>
                                             <td className="py-4 px-4">
                                                 <span
                                                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium"
                                                     style={{
-                                                        backgroundColor: `${COLORS[feedback.preferred_color]}20`,
+                                                        backgroundColor: `${COLORS[feedback.preferred_color]}15`,
                                                         color: COLORS[feedback.preferred_color]
                                                     }}
                                                 >
@@ -282,10 +282,10 @@ export default function AdminPage() {
                                                     {feedback.preferred_color.charAt(0).toUpperCase() + feedback.preferred_color.slice(1)}
                                                 </span>
                                             </td>
-                                            <td className="py-4 px-4 text-white/60 max-w-xs truncate">
+                                            <td className="py-4 px-4 text-slate-500 max-w-xs truncate">
                                                 {feedback.remark || '-'}
                                             </td>
-                                            <td className="py-4 px-4 text-white/60">
+                                            <td className="py-4 px-4 text-slate-500">
                                                 {new Date(feedback.created_at!).toLocaleString()}
                                             </td>
                                         </tr>
@@ -294,7 +294,7 @@ export default function AdminPage() {
                             </table>
                         </div>
                     ) : (
-                        <div className="py-12 text-center text-white/40">
+                        <div className="py-12 text-center text-slate-400">
                             <svg className="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>

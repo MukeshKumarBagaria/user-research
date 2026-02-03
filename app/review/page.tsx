@@ -59,7 +59,7 @@ export default function ReviewPage() {
     if (!isLoaded) {
         return (
             <main className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-4 border-white/20 border-t-white"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-4 border-slate-200 border-t-indigo-600"></div>
             </main>
         )
     }
@@ -70,13 +70,13 @@ export default function ReviewPage() {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
                     <div>
-                        <Link href="/" className="text-white/60 hover:text-white transition-colors flex items-center gap-2 mb-2">
+                        <Link href="/" className="text-slate-500 hover:text-slate-700 transition-colors flex items-center gap-2 mb-2">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
                             Back to Home
                         </Link>
-                        <h1 className="text-3xl sm:text-4xl font-bold text-white">Review Themes</h1>
+                        <h1 className="text-3xl sm:text-4xl font-bold text-slate-800">Review Themes</h1>
                     </div>
 
                     {allViewed && (
@@ -99,8 +99,8 @@ export default function ReviewPage() {
                             key={theme.key}
                             onClick={() => setCurrentTheme(index)}
                             className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${currentTheme === index
-                                    ? 'bg-white/10 text-white border border-white/20'
-                                    : 'bg-white/5 text-white/60 border border-transparent hover:bg-white/10'
+                                ? 'bg-white text-slate-800 border border-slate-200 shadow-md'
+                                : 'bg-slate-100 text-slate-500 border border-transparent hover:bg-white hover:shadow-sm'
                                 }`}
                         >
                             <div
@@ -109,7 +109,7 @@ export default function ReviewPage() {
                             />
                             {theme.name}
                             {viewedThemes[theme.key] && (
-                                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                 </svg>
                             )}
@@ -133,7 +133,7 @@ export default function ReviewPage() {
                     <button
                         onClick={() => setCurrentTheme((prev) => Math.max(0, prev - 1))}
                         disabled={currentTheme === 0}
-                        className="px-6 py-3 rounded-xl bg-white/5 text-white/60 hover:bg-white/10 hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center gap-2"
+                        className="px-6 py-3 rounded-xl bg-slate-100 text-slate-500 hover:bg-white hover:text-slate-700 hover:shadow-sm transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center gap-2"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -144,7 +144,7 @@ export default function ReviewPage() {
                     {currentTheme < themes.length - 1 ? (
                         <button
                             onClick={() => setCurrentTheme((prev) => Math.min(themes.length - 1, prev + 1))}
-                            className="px-6 py-3 rounded-xl bg-white/5 text-white/60 hover:bg-white/10 hover:text-white transition-all flex items-center gap-2"
+                            className="px-6 py-3 rounded-xl bg-slate-100 text-slate-500 hover:bg-white hover:text-slate-700 hover:shadow-sm transition-all flex items-center gap-2"
                         >
                             Next
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,7 +159,7 @@ export default function ReviewPage() {
                             </svg>
                         </Link>
                     ) : (
-                        <div className="px-6 py-3 rounded-xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-sm">
+                        <div className="px-6 py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 text-sm">
                             Please view all themes to continue
                         </div>
                     )}

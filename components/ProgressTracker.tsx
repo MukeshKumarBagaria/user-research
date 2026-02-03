@@ -20,8 +20,8 @@ export default function ProgressTracker({ viewedThemes }: ProgressTrackerProps) 
     return (
         <div className="glass-card rounded-2xl p-6 mb-8">
             <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-white">Review Progress</h3>
-                <span className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                <h3 className="text-lg font-semibold text-slate-700">Review Progress</h3>
+                <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                     {viewedCount}/3
                 </span>
             </div>
@@ -39,7 +39,7 @@ export default function ProgressTracker({ viewedThemes }: ProgressTrackerProps) 
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                 </svg>
                             ) : (
-                                <span className="text-white/60">{index + 1}</span>
+                                <span>{index + 1}</span>
                             )}
                         </div>
                         {index < themes.length - 1 && (
@@ -57,7 +57,7 @@ export default function ProgressTracker({ viewedThemes }: ProgressTrackerProps) 
                             className="w-3 h-3 rounded-full"
                             style={{ backgroundColor: theme.color }}
                         />
-                        <span className={`text-sm ${viewedThemes[theme.key] ? 'text-white' : 'text-white/50'}`}>
+                        <span className={`text-sm ${viewedThemes[theme.key] ? 'text-slate-700' : 'text-slate-400'}`}>
                             {theme.label}
                         </span>
                     </div>
@@ -65,13 +65,13 @@ export default function ProgressTracker({ viewedThemes }: ProgressTrackerProps) 
             </div>
 
             {/* Status Message */}
-            <div className="mt-4 pt-4 border-t border-white/10">
+            <div className="mt-4 pt-4 border-t border-slate-200">
                 {viewedCount === 3 ? (
-                    <p className="text-green-400 text-center font-medium">
+                    <p className="text-green-600 text-center font-medium">
                         ✓ All themes reviewed! You can now proceed to feedback.
                     </p>
                 ) : (
-                    <p className="text-white/60 text-center">
+                    <p className="text-slate-500 text-center">
                         Please review all {3 - viewedCount} remaining theme{3 - viewedCount !== 1 ? 's' : ''} to unlock the feedback form.
                     </p>
                 )}
