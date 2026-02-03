@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import { useLanguage } from '@/lib/LanguageContext'
 
 interface PDFViewerProps {
     pdfUrl: string
@@ -23,6 +24,7 @@ const bgGradients = {
 }
 
 export default function PDFViewer({ pdfUrl, themeName, themeColor, onViewed, isViewed }: PDFViewerProps) {
+    const { t } = useLanguage()
     const [loading, setLoading] = useState(true)
     const [isFullscreen, setIsFullscreen] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -48,48 +50,48 @@ export default function PDFViewer({ pdfUrl, themeName, themeColor, onViewed, isV
             className={`glass-card rounded-2xl overflow-hidden border-2 ${colorClasses[themeColor]} transition-all duration-500 ${isFullscreen ? 'rounded-none bg-white' : ''}`}
         >
             {/* Header */}
-            <div className={`px-6 py-4 bg-gradient-to-r ${bgGradients[themeColor]} flex items-center justify-between`}>
-                <div className="flex items-center gap-3">
-                    <div className="w-4 h-4 rounded-full"
+            <div className={`px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r ${bgGradients[themeColor]} flex items-center justify-between`}>
+                <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full"
                         style={{ backgroundColor: themeColor === 'green' ? '#22c55e' : themeColor === 'purple' ? '#a855f7' : '#3b82f6' }} />
-                    <h3 className="text-xl font-bold text-slate-800">{themeName}</h3>
+                    <h3 className="text-base sm:text-xl font-bold text-slate-800">{themeName}</h3>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                     {/* Fullscreen Button */}
                     <button
                         onClick={toggleFullscreen}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/60 hover:bg-white text-slate-600 transition-all duration-300"
-                        title={isFullscreen ? 'Exit Fullscreen' : 'View Fullscreen'}
+                        className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/60 hover:bg-white text-slate-600 transition-all duration-300 text-sm"
+                        title={isFullscreen ? t('pdf.exit') : t('pdf.fullscreen')}
                     >
                         {isFullscreen ? (
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         ) : (
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                             </svg>
                         )}
-                        <span className="text-sm font-medium hidden sm:inline">
-                            {isFullscreen ? 'Exit' : 'Fullscreen'}
+                        <span className="text-xs sm:text-sm font-medium hidden sm:inline">
+                            {isFullscreen ? t('pdf.exit') : t('pdf.fullscreen')}
                         </span>
                     </button>
                     {isViewed && (
-                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-600">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-green-100 text-green-600">
+                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
-                            <span className="text-sm font-medium">Viewed</span>
+                            <span className="text-xs sm:text-sm font-medium">{t('pdf.viewed')}</span>
                         </div>
                     )}
                 </div>
             </div>
 
             {/* PDF Viewer */}
-            <div className="pdf-container relative" style={{ height: isFullscreen ? 'calc(100vh - 140px)' : '500px' }}>
+            <div className="pdf-container relative" style={{ height: isFullscreen ? 'calc(100vh - 140px)' : '400px' }}>
                 {loading && (
                     <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
-                        <div className="animate-spin rounded-full h-12 w-12 border-4 border-slate-200 border-t-indigo-600"></div>
+                        <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-4 border-slate-200 border-t-indigo-600"></div>
                     </div>
                 )}
                 <iframe
@@ -102,10 +104,10 @@ export default function PDFViewer({ pdfUrl, themeName, themeColor, onViewed, isV
 
             {/* Mark as Viewed Button */}
             {!isViewed && (
-                <div className="p-4 bg-gradient-to-r from-slate-50 to-slate-100">
+                <div className="p-3 sm:p-4 bg-gradient-to-r from-slate-50 to-slate-100">
                     <button
                         onClick={onViewed}
-                        className="w-full py-3 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-[1.02]"
+                        className="w-full py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-[1.02] text-sm sm:text-base"
                         style={{
                             background: themeColor === 'green'
                                 ? 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)'
@@ -119,7 +121,7 @@ export default function PDFViewer({ pdfUrl, themeName, themeColor, onViewed, isV
                                     : '0 4px 15px rgba(59, 130, 246, 0.4)',
                         }}
                     >
-                        ✓ Mark as Viewed
+                        {t('pdf.markViewed')}
                     </button>
                 </div>
             )}

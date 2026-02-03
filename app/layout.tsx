@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { LanguageProvider } from '@/lib/LanguageContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'Theme Preference Survey | User Research',
-    description: 'Help us choose the best color theme for our application by reviewing and providing feedback on our design proposals.',
-    keywords: 'user research, theme preference, UI design, feedback',
+    title: 'Theme Preference Survey | थीम वरीयता सर्वेक्षण',
+    description: 'Help us choose the perfect color theme for our application | हमारे एप्लिकेशन के लिए सही रंग थीम चुनने में हमारी मदद करें',
 }
 
 export default function RootLayout({
@@ -18,9 +18,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <div className="min-h-screen">
+                <LanguageProvider>
                     {children}
-                </div>
+                </LanguageProvider>
             </body>
         </html>
     )
