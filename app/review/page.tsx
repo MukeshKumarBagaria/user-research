@@ -2,28 +2,28 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import PDFViewer from '@/components/PDFViewer'
+import ImageViewer from '@/components/ImageViewer'
 import { useLanguage } from '@/lib/LanguageContext'
 
 export default function ReviewPage() {
     const { t, language } = useLanguage()
 
     const themes = [
-        { key: 'green' as const, name: language === 'hi' ? 'हरा' : 'Green', pdfUrl: '/pdf/Green_proposal.pdf', color: 'green' as const },
-        { key: 'purple' as const, name: language === 'hi' ? 'बैंगनी' : 'Purple', pdfUrl: '/pdf/Purple_proposal.pdf', color: 'purple' as const },
-        { key: 'blue' as const, name: language === 'hi' ? 'नीला' : 'Blue', pdfUrl: '/pdf/Blue_proposal.pdf', color: 'blue' as const },
+        { key: 'green' as const, name: language === 'hi' ? 'हरा' : 'Green', imageUrl: '/Green_proposal.png', color: 'green' as const },
+        { key: 'purple' as const, name: language === 'hi' ? 'बैंगनी' : 'Purple', imageUrl: '/Purple_proposal.png', color: 'purple' as const },
+        { key: 'blue' as const, name: language === 'hi' ? 'नीला' : 'Blue', imageUrl: '/Blue_proposal.png', color: 'blue' as const },
     ]
 
     const [currentTheme, setCurrentTheme] = useState(0)
 
-    // Preload all PDFs on mount for faster switching
+    // Preload all images on mount for faster switching
     useEffect(() => {
         themes.forEach((theme) => {
-            // Create link elements for preloading
+            // Create link elements for preloading images
             const link = document.createElement('link')
-            link.rel = 'prefetch'
-            link.href = theme.pdfUrl
-            link.as = 'document'
+            link.rel = 'preload'
+            link.href = theme.imageUrl
+            link.as = 'image'
             document.head.appendChild(link)
         })
     }, [])
@@ -64,10 +64,10 @@ export default function ReviewPage() {
                     ))}
                 </div>
 
-                {/* PDF Viewer */}
+                {/* Image Viewer */}
                 <div className="animate-fade-in" key={currentTheme}>
-                    <PDFViewer
-                        pdfUrl={themes[currentTheme].pdfUrl}
+                    <ImageViewer
+                        imageUrl={themes[currentTheme].imageUrl}
                         themeName={themes[currentTheme].name}
                         themeColor={themes[currentTheme].color}
                     />
