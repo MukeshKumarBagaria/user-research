@@ -48,16 +48,6 @@ export default function HomePage() {
                                 <span className="text-white font-bold text-sm sm:text-base">2</span>
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-slate-800 text-sm sm:text-base mb-0.5 sm:mb-1">{t('home.step2.title')}</h3>
-                                <p className="text-slate-500 text-xs sm:text-sm">{t('home.step2.desc')}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 sm:gap-4">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center flex-shrink-0">
-                                <span className="text-white font-bold text-sm sm:text-base">3</span>
-                            </div>
-                            <div className="flex-1 min-w-0">
                                 <h3 className="font-semibold text-slate-800 text-sm sm:text-base mb-0.5 sm:mb-1">{t('home.step3.title')}</h3>
                                 <p className="text-slate-500 text-xs sm:text-sm">{t('home.step3.desc')}</p>
                             </div>

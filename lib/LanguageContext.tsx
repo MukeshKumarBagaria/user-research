@@ -19,8 +19,7 @@ const translations = {
         'home.howItWorks': 'How It Works',
         'home.step1.title': 'Review Three Themes',
         'home.step1.desc': 'View our carefully designed color themes: Green, Purple, and Blue',
-        'home.step2.title': 'Mark Each as Viewed',
-        'home.step2.desc': 'Take your time to evaluate each design before marking it as viewed',
+
         'home.step3.title': 'Submit Your Feedback',
         'home.step3.desc': 'After viewing all themes, share your preference with us',
         'home.themesPreview': 'Themes You\'ll Review',
@@ -101,8 +100,7 @@ const translations = {
         'home.howItWorks': 'यह कैसे काम करता है',
         'home.step1.title': 'तीन थीम देखें',
         'home.step1.desc': 'हमारी सावधानीपूर्वक डिज़ाइन की गई रंग थीम देखें: हरा, बैंगनी, और नीला',
-        'home.step2.title': 'प्रत्येक को देखा हुआ चिह्नित करें',
-        'home.step2.desc': 'देखा हुआ चिह्नित करने से पहले प्रत्येक डिज़ाइन का मूल्यांकन करने के लिए समय लें',
+
         'home.step3.title': 'अपनी प्रतिक्रिया दें',
         'home.step3.desc': 'सभी थीम देखने के बाद, हमें अपनी पसंद बताएं',
         'home.themesPreview': 'आप जिन थीम की समीक्षा करेंगे',
