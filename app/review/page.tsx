@@ -9,9 +9,9 @@ export default function ReviewPage() {
     const { t, language } = useLanguage()
 
     const themes = [
-        { key: 'green' as const, name: language === 'hi' ? 'हरा' : 'Green', imageUrl: '/Green_proposal.png', color: 'green' as const },
-        { key: 'purple' as const, name: language === 'hi' ? 'बैंगनी' : 'Purple', imageUrl: '/Purple_proposal.png', color: 'purple' as const },
-        { key: 'blue' as const, name: language === 'hi' ? 'नीला' : 'Blue', imageUrl: '/Blue_proposal.png', color: 'blue' as const },
+        { key: 'green' as const, name: language === 'hi' ? 'हरा' : 'Green', imageUrl: '/Green_proposal.webp', color: 'green' as const },
+        { key: 'purple' as const, name: language === 'hi' ? 'बैंगनी' : 'Purple', imageUrl: '/Purple_proposal.webp', color: 'purple' as const },
+        { key: 'blue' as const, name: language === 'hi' ? 'नीला' : 'Blue', imageUrl: '/Blue_proposal.webp', color: 'blue' as const },
     ]
 
     const [currentTheme, setCurrentTheme] = useState(0)
