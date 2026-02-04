@@ -140,9 +140,9 @@ export default function FeedbackForm() {
                     id="remark"
                     value={formData.remark}
                     onChange={(e) => setFormData({ ...formData, remark: e.target.value })}
-                    className="input-field min-h-[80px] sm:min-h-[100px] resize-none text-sm sm:text-base"
-                    placeholder={t('form.remarksPlaceholder')}
-                    rows={4}
+                    className="input-field min-h-[40px] sm:min-h-[50px] resize-none text-sm sm:text-base"
+                    maxLength={10}
+                    rows={1}
                 />
             </div>
 
