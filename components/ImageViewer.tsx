@@ -26,14 +26,14 @@ export default function ImageViewer({ imageUrl, themeName, themeColor }: ImageVi
     const { language } = useLanguage()
     const [loading, setLoading] = useState(true)
     const [isFullscreen, setIsFullscreen] = useState(false)
-    const [isZoomed, setIsZoomed] = useState(false)
+    const [isZoomed, setIsZoomed] = useState(true)
     const containerRef = useRef<HTMLDivElement>(null)
     const imageContainerRef = useRef<HTMLDivElement>(null)
 
     // Reset loading state when image changes
     useEffect(() => {
         setLoading(true)
-        setIsZoomed(false)
+        setIsZoomed(true)
     }, [imageUrl])
 
     const toggleFullscreen = async () => {
